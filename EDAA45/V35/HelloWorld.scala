@@ -1,5 +1,6 @@
 object HelloWorld {
   def main(args: Array[String]): Unit = {
-    println("Hello, world!")
+    var testVal: String = "hejsan adamski"
+    testVal = "adniao"
   }
 }
