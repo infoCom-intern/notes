@@ -70,8 +70,18 @@ Föreläsning 1 - Introduktion - Kommunikationssystem
 - Protokoll anger hur information ska tolkas
 - Protokoll behövs för att veta vad t.ex. en signal betyder
 
-### 6G (avspårat)
+#### 6G (avspårat)
 - Istället för basstation
 - Antenner lite överallt, inbyggt i möbler, projektorer, etc
 - Många antenner mycket närmre => Mindre energi för att skicka
 - Mer tillförlitligt -> Snabbare (Nuvarande teknologi behöver re-requesta information som förloras [tänk tcp])
+
+#### Dialog (dator & människa) - TCP (:
+1. Dialogstart / New connection
+2. Information / Request
+3. Acknowledgement
+4. Repeat step 2, 3
+5. Dialogslut / Close connection
+
+#### Olika lager - TCP/IP Stack (:
+- Applikation -> Nätadapter
