@@ -85,3 +85,8 @@ Föreläsning 1 - Introduktion - Kommunikationssystem
 
 #### Olika lager - TCP/IP Stack (:
 - Applikation -> Nätadapter
+
+#### Sammanfatta protokoll
+- Beskriver: hur, när, var
+- Standardiserar, är ett krav för digital kommunkation
+- Alla parter hur det fungerar från början, måste inte lista ut, extremt effektivare
