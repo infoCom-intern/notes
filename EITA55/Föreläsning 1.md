@@ -90,3 +90,22 @@ Föreläsning 1 - Introduktion - Kommunikationssystem
 - Beskriver: hur, när, var
 - Standardiserar, är ett krav för digital kommunkation
 - Alla parter hur det fungerar från början, måste inte lista ut, extremt effektivare
+
+
+### Datapaket / Packages
+- Exempel: Huvud (Header), Data (Payload), Svans (Tail)
+- Data levereras i många små packages
+- Fördel: Kan re-requesta mindre delar, effektivare
+
+### GSM-myten
+- **MYT!!**
+- Det första digital mobiltelefon standarden - 2G
+- Hade inte dagens teknik -> Komprimerade väldigt mycket (allt som inte var väsenligt för att förstå vad dem sa)
+- Därför kunde man inte höra vem man pratade i, istället fyllde vår hjärna i
+
+### Information imorgon
+- Digital telepati? (Tänk på nuans i ordet telepati, kan man överföra exakt samma upplevelse? Sammma tankar? *profundity*)
+
+### Nästa föreläsning
+- Mer konkret vad är signaler
+- Vilka tradeoffs gör vi?
