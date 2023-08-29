@@ -65,3 +65,13 @@ Föreläsning 1 - Introduktion - Kommunikationssystem
 **Exempel: nätadapter**
 - Nätadaptern gör om den digitala informationen till en analog signal (som representerar digital information)
 - Vi måste alltid behandla information i analog form i den fysiska världen, även om den representerar digital information
+
+### Kommunikations-protokoll / standarder
+- Protokoll anger hur information ska tolkas
+- Protokoll behövs för att veta vad t.ex. en signal betyder
+
+### 6G (avspårat)
+- Istället för basstation
+- Antenner lite överallt, inbyggt i möbler, projektorer, etc
+- Många antenner mycket närmre => Mindre energi för att skicka
+- Mer tillförlitligt -> Snabbare (Nuvarande teknologi behöver re-requesta information som förloras [tänk tcp])
