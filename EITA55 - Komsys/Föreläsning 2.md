@@ -47,3 +47,20 @@ Föreläsning 2
 - Måste berätta hur du kodat, hur många bps (bitar per sekund), hur många bitar till amplitudnivåer (vilket bitdjup), vilken frekvens?
 - Tradeoffs! Är det värt att inkludera möjligheten att byta bps/frekvens/sampling-rate i ett protokoll? Eller kostar det mer än det hade gjort att bara sampla hela filen i den högre frekvensen/sampling-raten/bps:n?
 
+## Digital (och analog) kommunikation
+
+### Analog kommunikation
+- Analog telekommunikation finns
+- Nuvarande analoga är bara analoga tills en låda i kvarteret som omvandlar signalen
+- Analog kommunikation färdas genom ett medium, informationen förvrängs och skadas alltid på vägen till destinationen
+- Information digitaliseras (digitiseras)
+- Det blir olika fel (dämpning, störningar) vid alla ställen under transmissionen, går inte att reparera fel (till skillnad från digital kommunikation)
+
+### Digital kommunikation
+- Exakt kommunikation
+- Möjligt att försöka återskapa skadad information (checksums, parity, etc)
+- Mycket mer lämpad för långa avstånd, p.g.a. bland annat ovan
+
+#### Internet trivia
+- Internet gick från början via analoga telefonlinjer
+- Modem ringde (bokstavligen ringde) upp internetleverantören, sen skickades den digitala datan i analog form, i form av ljud
