@@ -1,0 +1,1 @@
+Funktioner är *äkta värden*
