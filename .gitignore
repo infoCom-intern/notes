@@ -1,5 +1,9 @@
+# Folders
 .scalafmt.conf
 .bsp
 .metals
 .scala-build
 .vscode
+
+# Files
+test.scala
