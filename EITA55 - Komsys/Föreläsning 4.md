@@ -56,3 +56,4 @@ Föreläsning 4
 ### Stora nät
 - LAN har begränsad storlek
 - Behov: Man vill kunna kommunicera mellan olika noder oavsett hur långt ifrån varandra
+- HANN INTE MED, NÄSTA FÖRELÄSNING
