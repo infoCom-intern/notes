@@ -170,8 +170,91 @@ x^10 + x^7 + x^6 + x^4 **/** x^3 + x^2 + 1
 
 *(x^5) -> +x^8 + x^7 + x^5
 
-= x^7 **INKOMPLETT**
+= x^7 + x^5 + x^4
+
+*(x^4) -> x^7 + x^6 + x^4
+
+= x^6 + x^5
+
+*(x^3) -> x^6 + x^5 + x^3
+
+= x^3
+
+*(1) -> x^3 + x^2 + 1
+
+= x^2 + 1 = 101
 
 
 
 Lägg sen till R(x) som svans (tail) på meddelandet
+-> "10011010" + "101" = "10011010101"
+
+# Introduktion till ARQ (Automatic Repeat Request)
+- Grundkoncept: Bekräfta och skicka information för att säkerställa korrektöverföring
+- Analogi: "Har du förstått?
+
+## Generellt neråt
+- Större fönster => Mer paket "in-flight"
+- Fönsterstorlek anger vilka paket som får skickas / tas emot
+- Fönster "slidas vidare" när paket i "början på fönstert" har fått ACK
+
+## Stop-and-wait
+- Grundprincip: Ett paket i taget
+- Skicka paket, vänta på bekräftelse, skicka nästa.
+- Om inte bekräftelse kommer, skicka igen
+- Nackdel: Tar lång tid p.g.a. väntande och time-out.
+- Använder bara 2 sekvensnummer: 0 och 1. Detta fungerar endast eftersom ett enda paket väntas på i taget, **VIKTIGT**.
+- Otroligt primitivt sätt
+
+## Go-back-N
+- Flera Paket: Skickas flera paket parallelt
+- Sändarfönster (window) anger vilka många paket som får skickas
+- Mottagaren har endast ett fönster med endast ett enda paket, väntar på först paket 0, sen paket 1, sen paket 2, etc
+- Mottagaren skickar ingen ACK om det är fel på något paket
+- Effektivare än Stop-and-wait
+- Nackdel: Om ett paket förloras så måste all paket efter det i sändarfönster skickas om, blir problem med stora sönderfönster
+
+## Selective repeat
+- Både mottagare och sändare har ett fönster
+- Har både ACK och **NAK**
+- Behöver inga timeouts
+- Om ett paket tas emot ur ordning, alltså typ Frame 3 före Frame 2, så skickas en "NAK 2" för att be sändaren att skicka det
+- Fönstert får inte vara större än hälften av sekvensnummern, annars kan sändare fönstert "glida(slida) över" till nästa "0:a", vilket hade lurat mottagaren (som förväntade sig förra 0:n) (0 är bara ett exempel, kan ske med annan siffra)
+
+# Hidden Node Problem"
+- Två noder kommunicerar med en mellannod via samma medium men kan inte se varandra. Kan orsaka svår-upptäckta kollisioner
+
+# Överföringstid
+- Överföringstid = Transmissionstid + Propageringstid
+- Transmissionstid: Tiden det tar att skicka paketet (alla bitarna av paketet)
+- Propageringstid - Tiden det tar för själva signalen att resa från sändaren till mottagaren
+
+## Transmissiontid (Transmission Time)
+- Definition: Tiden det tar att skicka all bitar av ett datapaket på länken från sändare till mottagare. (Till skillnad från propogationstid)
+- Transmissionshastighet: bitar per sekund
+- Faktorer: Beror på paketets storlek och länkens överföringshastighet (bandbredd)
+- Enhet: Tid, ofta millisekunder eller sekunder
+
+## Propageringstid (Propogation Time)
+- Definition: Tiden det tar för en signal att färdas från sändaren till mottagaren över en kommunikationssignal
+- Propageringshastighet: meter per sekund
+- Faktorer: Medium
+
+# Hur upptäcks kollisioner
+- Om paketen kolliderar (överlagras) mitt på länken kan vi inte se det
+- Om mottagaren får ett paket samtidigt som den skickar ett, har det med all sannolikhet skett en kollision
+
+## Upptäckt av kollisioner och dess begränsningar
+
+### Hur kollisioner upptäcks
+- Enheter lyssnar och skickar data samtidigt
+- Jämförelse: Om den mottagna signalen inte matchar den sända, har en kollision skett (man lyssnar och förväntar sig höra sitt egna paket medan man sänder det, om man inte hör det så har en kollision skett)
+
+### Faktorer som påverkar Kollisioner
+- Sändningstid
+- Propageringstid
+- Om sändingstiden är mindre än propageringstiden, så tilllåter det att ett paket sänds helt innan någon del av det har tagits emot, då kan det kollidera med ett annat paket mitt på länken, där ingan av vardera enheter kan "höra", och därmed kan kollisionen inte upptäckas. (Kan så klart upptäcka via CRC/Checksum/paritetsbit/etc men det är mycket långsamare att vänta på att ett helt fel paket kommer fram och sen hantera den)
+
+### Åtgärder
+- Kablar har oftast maxlängd (enligt standarder)
+- Minimal längd på paket (du vill ockupera hela länken med ett paket, eftersom om någon annan börjar skicka precis när din första bit kommer fram, så kommer du alltid märka att du tar emot den biten medan du fortfarande skickar ditt paket)
